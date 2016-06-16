@@ -4,13 +4,9 @@ var session = require('express-session');
 var fs = require('fs');
 var path = require('path');
 var async = require('async');
-var Entities = require('html-entities').AllHtmlEntities;
 
-
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'somesecrettokenhere',resave: true,saveUninitialized: true}));
 //config
-global.entities = new Entities();
 global.async = async;
 global.db_name = 'store';
 global.db_host = 'mongodb://localhost:27017/';
